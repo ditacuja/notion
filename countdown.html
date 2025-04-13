@@ -4,44 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-  <title>Countdown B-day</title>
+  <title>countdown b-day</title>
 
   <style>
     body {
       text-align: center;
-      font-family: 'Fjalla One', sans-serif;
+      font-family: monospace;
       background-color: #fff;
       margin: 0;
-      padding: 30px;
+      padding: 20px;
     }
 
     h1 {
-      margin-bottom: 30px;
-      font-size: 28px;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: normal;
     }
 
     .counter-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 15px;
+      gap: 10px;
     }
 
     .row {
       display: flex;
-      gap: 15px;
+      gap: 10px;
     }
 
     .box {
       padding: 10px;
       border-radius: 5px;
       min-width: 60px;
-      height: 60px;
       border: 3px solid #000;
       box-shadow: 2px 2px 1px 0px #000;
       background-color: #fff;
       font-size: 18px;
       line-height: 1.2;
+      height: auto;
+    }
+
+    .number {
+      font-weight: bold;
+      font-size: 20px;
+      display: block;
     }
 
     .small {
@@ -52,7 +59,7 @@
   </style>
 </head>
 <body>
-  <h1>Countdown B-day</h1>
+  <h1>countdown b-day</h1>
 
   <div class="counter-wrapper">
     <div class="row">
@@ -77,10 +84,10 @@
       const diff = birthday - now;
 
       if (diff <= 0) {
-        daysBox.innerHTML = "0 <span class='small'>days</span>";
-        hoursBox.innerHTML = "0 <span class='small'>hours</span>";
-        minutesBox.innerHTML = "0 <span class='small'>mins</span>";
-        secondsBox.innerHTML = "0 <span class='small'>secs</span>";
+        daysBox.innerHTML = "<span class='number'>0</span> <span class='small'>days</span>";
+        hoursBox.innerHTML = "<span class='number'>0</span> <span class='small'>hours</span>";
+        minutesBox.innerHTML = "<span class='number'>0</span> <span class='small'>mins</span>";
+        secondsBox.innerHTML = "<span class='number'>0</span> <span class='small'>secs</span>";
         return;
       }
 
@@ -90,10 +97,10 @@
       const minutes = Math.floor((totalSeconds % 3600) / 60);
       const seconds = totalSeconds % 60;
 
-      daysBox.innerHTML = `${days} <span class="small">days</span>`;
-      hoursBox.innerHTML = `${hours} <span class="small">hours</span>`;
-      minutesBox.innerHTML = `${minutes} <span class="small">mins</span>`;
-      secondsBox.innerHTML = `${seconds} <span class="small">secs</span>`;
+      daysBox.innerHTML = `<span class="number">${days}</span> <span class="small">days</span>`;
+      hoursBox.innerHTML = `<span class="number">${hours}</span> <span class="small">hours</span>`;
+      minutesBox.innerHTML = `<span class="number">${minutes}</span> <span class="small">mins</span>`;
+      secondsBox.innerHTML = `<span class="number">${seconds}</span> <span class="small">secs</span>`;
     }
 
     setInterval(updateCountdown, 1000);
